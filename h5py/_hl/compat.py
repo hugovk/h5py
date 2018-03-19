@@ -43,7 +43,7 @@ except ImportError:
 
 # This is from python 3.5 stdlib (hence lacks PEP 519 changes)
 # This was introduced into python 3.2, so python < 3.2 does not have this
-# Effectively, this is only required for python 2.6 and 2.7, and can be removed
+# Effectively, this is only required for python 2.7, and can be removed
 # once support for them is dropped
 def _fscodec():
     encoding = sys.getfilesystemencoding()
