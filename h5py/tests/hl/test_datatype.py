@@ -105,7 +105,7 @@ class TestVlen(TestCase):
         fname = self.mktemp()
         arr1 = [[1],[1,2]]
         dt1 = h5py.special_dtype(vlen=h5py.special_dtype(
-            enum=('i', dict(foo=1, bar=2))))
+            enum=('i', {'foo': 1, 'bar': 2})))
 
         with h5py.File(fname,'w') as f:
             df1 = f.create_dataset('test', (len(arr1),), dtype=dt1)

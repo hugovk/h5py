@@ -511,7 +511,7 @@ def guess_shape(sid):
     elif sel_class == h5s.SCALAR:
         # NumPy has no way of expressing empty 0-rank selections, so we use None
         if sel_type == h5s.SEL_NONE: return None
-        if sel_type == h5s.SEL_ALL: return tuple()
+        if sel_type == h5s.SEL_ALL: return ()
 
     elif sel_class != h5s.SIMPLE:
         raise TypeError("Unrecognized dataspace class %s" % sel_class)

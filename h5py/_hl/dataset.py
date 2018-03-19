@@ -410,7 +410,7 @@ class Dataset(HLObject):
         """
         args = args if isinstance(args, tuple) else (args,)
         if is_empty_dataspace(self.id):
-            if not (args == tuple() or args == (Ellipsis,)):
+            if not (args == () or args == (Ellipsis,)):
                 raise ValueError("Empty datasets cannot be sliced")
             return Empty(self.dtype)
 
@@ -453,7 +453,7 @@ class Dataset(HLObject):
 
         if numpy.product(self.shape) == 0:
             # These are the only access methods NumPy allows for such objects
-            if args == (Ellipsis,) or args == tuple():
+            if args == (Ellipsis,) or args == ():
                 return numpy.empty(self.shape, dtype=new_dtype)
 
         # === Scalar dataspaces =================

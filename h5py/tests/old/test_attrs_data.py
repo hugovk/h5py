@@ -214,7 +214,7 @@ class TestEmpty(BaseAttrs):
             self.f.attrs.modify('x', 1)
 
     def test_values(self):
-        # list() is for Py3 where these are iterators
+        # [] is for Py3 where these are iterators
         values = list(self.f.attrs.values())
         self.assertEqual(
             [self.empty_obj], values

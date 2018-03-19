@@ -116,7 +116,7 @@ class TestScalarFloat(TestCase):
         
     def test_shape(self):
         """ Verify shape """
-        self.assertEquals(self.dset.shape, tuple())
+        self.assertEquals(self.dset.shape, ())
 
     def test_ellipsis(self):
         """ Ellipsis -> scalar ndarray """
@@ -170,7 +170,7 @@ class TestScalarCompound(TestCase):
         
     def test_shape(self):
         """ Verify shape """
-        self.assertEquals(self.dset.shape, tuple())
+        self.assertEquals(self.dset.shape, ())
 
     def test_ellipsis(self):
         """ Ellipsis -> scalar ndarray """
@@ -234,7 +234,7 @@ class TestScalarArray(TestCase):
     def test_shape(self):
         """ Verify shape """
         self.assertEquals(self.data.shape, (3, 2))
-        self.assertEquals(self.dset.shape, tuple())
+        self.assertEquals(self.dset.shape, ())
 
     def test_ellipsis(self):
         """ Ellipsis -> ndarray promoted to underlying shape """
