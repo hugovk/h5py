@@ -321,8 +321,8 @@ class TestContains(BaseGroup):
         """ "in" on closed group returns False (see also issue 174) """
         self.f.create_group('a')
         self.f.close()
-        self.assertFalse(b'a' in self.f)
-        self.assertFalse(u'a' in self.f)
+        self.assertNotIn(b'a', self.f)
+        self.assertNotIn(u'a', self.f)
 
     def test_empty(self):
         """ Empty strings work properly and aren't contained """
@@ -502,7 +502,7 @@ class TestAdditionalMappingFuncs(BaseMapping):
         """.pop falls back to default"""
         # e shouldn't exist as a group
         value = self.group.pop('e', None)
-        self.assertEqual(value, None)
+        self.assertIsNone(value)
 
     def test_pop_raises(self):
         """.pop raises KeyError for non-existence"""

@@ -75,7 +75,7 @@ class TestScalarSliceRules(TestCase):
     def test_args(self):
         """ Permissible arguments for scalar slicing """
         shape, selection = sel.read_selections_scalar(self.dsid, ())
-        self.assertEqual(shape, None)
+        self.assertIsNone(shape)
         self.assertEqual(selection.get_select_npoints(), 1)
 
         shape, selection = sel.read_selections_scalar(self.dsid, (Ellipsis,))

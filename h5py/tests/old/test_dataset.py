@@ -123,7 +123,7 @@ class TestCreateData(BaseDataset):
         """ Create dataset with missing intermediate groups """
         ds = self.f.create_dataset("/foo/bar/baz", shape=(10, 10), dtype='<i4')
         self.assertIsInstance(ds, h5py.Dataset)
-        self.assertTrue("/foo/bar/baz" in self.f)
+        self.assertIn("/foo/bar/baz", self.f)
 
     def test_reshape(self):
         """ Create from existing data, and make it fit a new shape """
@@ -380,7 +380,7 @@ class TestCreateLZF(BaseDataset):
         """ Create with explicit lzf """
         dset = self.f.create_dataset('foo', (20, 30), compression='lzf')
         self.assertEqual(dset.compression, 'lzf')
-        self.assertEqual(dset.compression_opts, None)
+        self.assertIsNone(dset.compression_opts)
 
     def test_lzf_exc(self):
         """ Giving lzf options raises ValueError """
@@ -496,7 +496,7 @@ class TestCreateScaleOffset(BaseDataset):
         dset = self.f.create_dataset('foo', shape, dtype=int, scaleoffset=nbits)
 
         # Dataset reports scaleoffset enabled with correct precision
-        self.assertTrue(dset.scaleoffset == 12)
+        self.assertEqual(dset.scaleoffset, 12)
 
         # Data round-trips correctly
         dset[...] = testdata
@@ -516,7 +516,7 @@ class TestCreateScaleOffset(BaseDataset):
         dset = self.f.create_dataset('foo', shape, dtype=int, scaleoffset=nbits)
 
         # Dataset reports scaleoffset enabled with correct precision
-        self.assertTrue(dset.scaleoffset == 12)
+        self.assertEqual(dset.scaleoffset, 12)
 
         # Data can be written and read
         dset[...] = testdata

@@ -22,5 +22,5 @@ class TestFileImage(TestCase):
         fid = h5f.open(self.mktemp().encode(), h5py.h5f.ACC_RDONLY, fapl=fapl)
         f = h5py.File(fid)
 
-        self.assertTrue('test' in f)
+        self.assertIn('test', f)
 
