@@ -36,7 +36,7 @@ if mpi:
     import mpi4py
 
 libver_dict = {'earliest': h5f.LIBVER_EARLIEST, 'latest': h5f.LIBVER_LATEST}
-libver_dict_r = dict((y, x) for x, y in six.iteritems(libver_dict))
+libver_dict_r = {y: x for x, y in six.iteritems(libver_dict)}
 
 
 def _set_fapl_mpio(plist, **kwargs):

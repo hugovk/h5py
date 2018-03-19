@@ -49,13 +49,13 @@ class_exprs = { "ObjectID": "h5py.h5.ObjectID",
 
 
 try:
-    class_exprs = dict( 
-        (re.compile(class_base % x.replace(" ",r"\s"), re.VERBOSE), y) \
-        for x, y in class_exprs.iteritems() )
+    class_exprs = {
+        re.compile(class_base % x.replace(" ",r"\s"), re.VERBOSE): y
+        for x, y in class_exprs.iteritems()}
 except AttributeError:
-    class_exprs = dict( 
-        (re.compile(class_base % x.replace(" ",r"\s"), re.VERBOSE), y) \
-        for x, y in class_exprs.items() )
+    class_exprs = {
+        re.compile(class_base % x.replace(" ",r"\s"), re.VERBOSE): y
+        for x, y in class_exprs.items()}
 
 
 def replace_class(istr):
