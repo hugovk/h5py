@@ -78,7 +78,7 @@ class Line(object):
         
         m = self.PATTERN.match(text)
         if m is None:
-            raise ValueError("Invalid line encountered: {0}".format(text))
+            raise ValueError("Invalid line encountered: {}".format(text))
             
         parts = m.groupdict()
         
@@ -94,7 +94,7 @@ class Line(object):
         sig_const_stripped = self.sig.replace('const', '')
         self.args = self.SIG_PATTERN.findall(sig_const_stripped)
         if self.args is None:
-            raise ValueError("Invalid function signature: {0}".format(self.sig))
+            raise ValueError("Invalid function signature: {}".format(self.sig))
         self.args = ", ".join(self.args)
 
 
@@ -171,7 +171,7 @@ class LineProcessor(object):
         
         def wrapif(condition, code):
             code = code.replace('\n', '\n    ', code.count('\n')-1) # Yes, -1.
-            code = "IF {0}:\n    {1}".format(condition, code)
+            code = "IF {}:\n    {}".format(condition, code)
             return code
 
         if self.line.mpi:

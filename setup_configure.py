@@ -240,4 +240,4 @@ def autodetect_version(hdf5_dir=None):
 
     lib.H5get_libversion(byref(major), byref(minor), byref(release))
 
-    return "{0}.{1}.{2}".format(int(major.value), int(minor.value), int(release.value))
+    return "{}.{}.{}".format(int(major.value), int(minor.value), int(release.value))
