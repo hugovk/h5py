@@ -14,7 +14,6 @@ except ImportError:
     from distutils.core import setup
     from distutils.extension import Extension
 from distutils.cmd import Command
-from distutils.dist import Distribution
 import sys
 import os
 import os.path as op
@@ -68,15 +67,6 @@ class test(Command):
     def run(self):
         """ Called by Distutils when this command is run """
         import sys
-        py_version = sys.version_info[:2]
-        if py_version != (2, 6):
-            import unittest
-        else:
-            try:
-                import unittest2 as unittest
-            except ImportError:
-                raise ImportError( "unittest2 is required to run tests with Python 2.6")
-
         buildobj = self.distribution.get_command_obj('build')
         buildobj.run()
 
@@ -108,10 +98,8 @@ License :: OSI Approved :: BSD License
 Programming Language :: Cython
 Programming Language :: Python
 Programming Language :: Python :: 2
-Programming Language :: Python :: 2.6
 Programming Language :: Python :: 2.7
 Programming Language :: Python :: 3
-Programming Language :: Python :: 3.3
 Programming Language :: Python :: 3.4
 Programming Language :: Python :: 3.5
 Programming Language :: Python :: 3.6

@@ -9,11 +9,6 @@
 
 from __future__ import absolute_import
 
-try:
-    import unittest2 as ut
-except ImportError:
-    import unittest as ut
-
 from h5py import h5p, h5f
 
 from ..common import TestCase

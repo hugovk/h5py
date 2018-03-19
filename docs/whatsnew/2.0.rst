@@ -43,10 +43,8 @@ Supported HDF5/Python versions
 * HDF5 1.6.X is no longer supported on any platform; following the release of
   1.6.10 some time ago, this branch is no longer maintained by The HDF Group.
 
-* Python 2.6 or later is now required to run h5py.  This is a consequence of
+* Python 2.7 or later is now required to run h5py.  This is a consequence of
   the numerous changes made to h5py for Python 3 compatibility.
-
-* On Python 2.6, unittest2 is now required to run the test suite.
 
 Group, Dataset and Datatype constructors have changed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
