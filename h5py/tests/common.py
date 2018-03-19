@@ -152,7 +152,7 @@ class TestCase(ut.TestCase):
             with self.assertRaises(exc):
                 dset[s]
 
-NUMPY_RELEASE_VERSION = tuple([int(i) for i in np.__version__.split(".")[0:2]])
+NUMPY_RELEASE_VERSION = tuple(int(i) for i in np.__version__.split(".")[0:2])
 
 @contextmanager
 def closed_tempfile(suffix='', text=None):
